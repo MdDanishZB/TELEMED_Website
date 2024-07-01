@@ -2,6 +2,7 @@
 
 .navbar {
   height: 100px;
+  background-color: transparent;
 
   .wrapper {
     max-width: 1366px;
@@ -11,27 +12,35 @@
     justify-content: space-between;
     height: 100%;
 
-    @include mobile {
-      justify-content: flex-end;
-      padding: 20px;
-    }
-
-    span {
+    .welcome-text {
       font-weight: bold;
-
-      @include mobile {
-        display: none;
-      }
+      font-size: 1.5em;
+      margin-right: auto;
     }
 
-    .social {
+    .navigation-links {
       display: flex;
+      align-items: center;
       gap: 20px;
 
-      img {
-        width: 18px;
-        height: 18px;
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.2em;
+        padding: 10px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: #333;
+          transform: translateY(-3px);
+        }
+
+        &.active {
+          font-weight: bold;
+          border-bottom: 2px solid #0044cc;
+        }
       }
     }
   }
+
 }

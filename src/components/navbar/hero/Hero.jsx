@@ -47,15 +47,15 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.h2 variants={textVariants}>AMRIT RAJ</motion.h2>
+          {/*<motion.h2 variants={textVariants}>AMRIT RAJ</motion.h2>*/}
           <motion.h1 variants={textVariants}>
-            Software Developer and AI/ML Enthusiast
+            TeleMed-Your Lifecare
           </motion.h1>
           <motion.div variants={textVariants} className="buttons">
             <motion.button variants={textVariants}>
-              See the Latest Works
+              Chat with Us!
             </motion.button>
-            <motion.button variants={textVariants}>Contact Me</motion.button>
+            <motion.button variants={textVariants}>Contact Us</motion.button>
           </motion.div>
           <motion.img
             variants={textVariants}
@@ -74,7 +74,7 @@ const Hero = () => {
         Undergraduate
       </motion.div>
       <div className="imageContainer">
-        <img src="/profile6.png" alt="" />
+        <img src="tele-3.jpg" alt="" />
       </div>
     </div>
   );

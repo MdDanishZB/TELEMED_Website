@@ -25,6 +25,8 @@
 
       h1 {
         font-size: 88px;
+        justify-content: center;
+        color: white;
       }
 
       .buttons {
@@ -41,7 +43,7 @@
       }
 
       img {
-        width: 50px;
+        width: 30px;
       }
     }
   }
@@ -49,8 +51,8 @@
   .imageContainer {
     height: 115%;
     position: absolute;
-    top: 0;
-    right: 10%;
+    top: 0%;
+    right: 5%;
 
     img {
       width: 100%;
