@@ -5,14 +5,18 @@ import Parallax from "./components/parallax/Parallax";
 import Contact from "./components/contact/Contact";
 import Services from "./components/Tips/Tips";
 import Cursor from "./components/cursor/Cursor";
-import Portfolio from "./components/portfolio/Portfolio";
 import Signup from "./components/signup/Signup";
 import HealthTips from "./components/Tips/Tips";
-
+import Chat from "./components/chatbot/chat";
+import { Route, Routes } from "react-router-dom";
 const App = () => {
   return (
     <div>
-      <Cursor />
+      <Routes>
+        <Route path="/chatbot" element={<Chat />} />
+        <Route path="/" element={
+          <>
+          <Cursor />
       <section id="Homepage">
         <Navbar />
         <Hero />
@@ -32,6 +36,15 @@ const App = () => {
       <section id="Contact">
         <Contact />
       </section>
+
+
+</>
+
+
+
+        } />
+      </Routes>
+
     </div>
   );
 };
