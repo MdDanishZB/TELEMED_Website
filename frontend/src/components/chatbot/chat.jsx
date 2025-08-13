@@ -15,31 +15,40 @@ const Chat = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const getBotReply = (userText) => {
-    const lower = userText.toLowerCase();
-    if (lower.includes("medicine") || lower.includes("medication")) {
-      return "Please provide the name of the medication you are inquiring about.";
-    } else if (lower.includes("headache")) {
-      return "For headaches, common medications include paracetamol or ibuprofen. Please consult your doctor before taking any medication.";
-    } else if (lower.includes("fever")) {
-      return "For mild fever, paracetamol is commonly used. Always check the correct dosage and consult your doctor.";
+  // Fetch bot reply from backend API
+  const fetchBotReply = async (userText) => {
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query: userText }),
+      });
+      if (!res.ok) throw new Error("Network error");
+      const data = await res.json();
+      return data.reply || "Sorry, no response from server.";
+    } catch (err) {
+      return "Sorry, there was a problem connecting to the server.";
     }
-    return "I'm here to help with your medication queries. Please ask your question.";
   };
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
 
     const userMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
-
-    setTimeout(() => {
-      const botMessage = { sender: "bot", text: getBotReply(input) };
-      setMessages((prev) => [...prev, botMessage]);
-    }, 400);
-
     setInput("");
+
+    // Show loading message
+    setMessages((prev) => [...prev, { sender: "bot", text: "...thinking..." }]);
+    const reply = await fetchBotReply(input);
+    setMessages((prev) => {
+      // Remove the loading message
+      const filtered = prev.filter((msg) => msg.text !== "...thinking...");
+      return [...filtered, { sender: "bot", text: reply }];
+    });
   };
 
   const styles = {
