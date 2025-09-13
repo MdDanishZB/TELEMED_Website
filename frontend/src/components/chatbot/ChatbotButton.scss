@@ -1,0 +1,22 @@
+.chatbot-float-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #2d3748; // Match your theme
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  &:hover {
+    background: #4fd1c5; // Accent color
+  }
+}

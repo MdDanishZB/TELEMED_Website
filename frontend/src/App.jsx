@@ -8,7 +8,8 @@ import Cursor from "./components/cursor/Cursor";
 import Signup from "./components/signup/Signup";
 import HealthTips from "./components/Tips/Tips";
 import Chat from "./components/chatbot/chat";
-import { Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ChatbotButton from "./components/chatbot/ChatbotButton";
 const App = () => {
   return (
     <div>
@@ -36,6 +37,7 @@ const App = () => {
       <section id="Contact">
         <Contact />
       </section>
+      <ChatbotButton />
 
 
 </>
